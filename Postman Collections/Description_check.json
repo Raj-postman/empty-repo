@@ -15,7 +15,8 @@
       "request": {
         "method": "GET",
         "header": [],
-        "url": "https://postman-echo.com/get"
+        "url": "https://postman-echo.com/get",
+        "description": "New request, which is added right now."
       },
       "response": []
     }
