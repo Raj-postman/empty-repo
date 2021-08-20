@@ -8,7 +8,7 @@ paths:
   /user:
     get:
       summary: 'Sample endpoint: Request one - 0.1_0.2'
-      operationId: listUser
+      operationId: listUserGH
       tags:
         - user
       parameters:
