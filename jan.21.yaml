@@ -7,8 +7,8 @@ servers:
 paths:
   /user:
     get:
-      summary: 'Sample endpoint: Request one - 0.1_0.2 GH'
-      operationId: listUserGH
+      summary: 'Sample endpoint: Request  0.1_0.2'
+      operationId: listUsers
       tags:
         - user
       parameters:
