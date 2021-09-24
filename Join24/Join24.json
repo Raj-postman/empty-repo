@@ -26,7 +26,7 @@
           }
         }
       ],
-      "_postman_id": "f50a6d09-bace-4097-baf5-c1329a8ad3e4",
+      "id": "f50a6d09-bace-4097-baf5-c1329a8ad3e4",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -104,7 +104,7 @@
           }
         }
       ],
-      "_postman_id": "e5194a61-5750-414f-9bc0-e5018e412d8c",
+      "id": "e5194a61-5750-414f-9bc0-e5018e412d8c",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -131,7 +131,7 @@
           }
         }
       ],
-      "_postman_id": "6991fd84-b839-415b-9c69-72237e1739c3",
+      "id": "6991fd84-b839-415b-9c69-72237e1739c3",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -275,7 +275,7 @@
           }
         }
       ],
-      "_postman_id": "cee8d088-797c-4e79-86e5-1f7fce0d1c52",
+      "id": "cee8d088-797c-4e79-86e5-1f7fce0d1c52",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -428,58 +428,49 @@
   ],
   "variable": [
     {
-      "id": "fa353c35-3233-408f-a68b-5c16ae4a44af",
+      "id": "ef95e472-bacc-4507-b8c2-87dbdb90d567",
       "key": "action",
-      "value": "Doing a spacewalk",
-      "type": "string"
+      "value": "Doing a spacewalk"
     },
     {
-      "id": "12a18db1-7cfa-4ad9-a0c7-596aecea049f",
+      "id": "6e263f95-adfb-4e9b-a832-da8d4802ccf2",
       "key": "genre",
-      "value": "Comedy",
-      "type": "string"
+      "value": "Comedy"
     },
     {
-      "id": "1af8c1b8-4e65-44f3-bac7-49f56006bac0",
+      "id": "50c73a60-bba3-4cd6-babb-ca505b1b9488",
       "key": "word",
-      "value": "parsnip",
-      "type": "string"
+      "value": "parsnip"
     },
     {
-      "id": "5b9bc363-dbd7-4afd-9972-838be9bcdc81",
+      "id": "61e23313-52a2-4b14-9f00-3adf256e55f2",
       "key": "length",
-      "value": "100",
-      "type": "string"
+      "value": "100"
     },
     {
-      "id": "96bca409-d89d-47cb-9ae1-55cd3be4f064",
+      "id": "26eecec5-a5bb-43ec-a2a6-e3f33e3e9404",
       "key": "quote",
-      "value": "This is a test quote.",
-      "type": "string"
+      "value": "This is a test quote."
     },
     {
-      "id": "26fc9cc3-a3d9-47a5-8a36-8fc1a104c7b8",
+      "id": "8df1d43b-d5ee-460e-bb37-e952eb585b90",
       "key": "quote_author",
-      "value": "Neil Studd",
-      "type": "string"
+      "value": "Neil Studd"
     },
     {
-      "id": "fb74b98b-6dfd-4391-afdd-05a3bebf7dac",
+      "id": "1b3a7a84-605f-4273-b9a6-3fcd1ae459ca",
       "key": "Slack_webhook_url",
-      "value": "https://hooks.slack.com/services/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",
-      "type": "string"
+      "value": "https://hooks.slack.com/services/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"
     },
     {
-      "id": "c2b50b6d-2ef7-48fe-a8a8-0c141ba58708",
+      "id": "26e4b779-9b90-495e-8fa8-4902ff10273c",
       "key": "Words",
-      "value": "",
-      "type": "string"
+      "value": ""
     },
     {
-      "id": "0040e19a-5c26-43c1-8308-809faac2ade1",
+      "id": "b6fc126f-eb67-4b07-870c-7bdae47c8972",
       "key": "Staff",
-      "value": "",
-      "type": "string"
+      "value": ""
     }
   ]
 }
