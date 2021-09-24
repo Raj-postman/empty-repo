@@ -1,0 +1,485 @@
+{
+  "info": {
+    "_postman_id": "b33fac95-a3aa-41f1-bf59-f57a51e807a2",
+    "name": "Quotes Monitor",
+    "description": "### First Collection: Daily Writing Habit\n\nI'm an aspiring (and struggling) fiction writer, and one of the best tips I've encountered for promoting creativity and avoiding writer's block, is to **write something every day**. It doesn't have to be much; just ten minutes, or a regular word count, is enough to keep those synapses firing.\n\nI'm also a fan of microfiction challenges (such as those which are run by [NYCMidnight](http://www.nycmidnight.com/)) so I've created a simple script which generates random contest-style writing prompts.\n\n### How the collection works\n\nWhenever the collection is run, a random writing prompt will be generated (e.g. \"Write a 100-word Sci-Fi story, featuring somebody who is jogging, and which includes the word \"remember\").\n\nThis data will then be sent (along with an inspirational quote) to a [Zapier webhook URL](https://zapier.com/help/doc/how-get-started-webhooks-zapier) of your choosing, where it can then be integrated with another service: for instance, you could ask Zapier to email or tweet the prompt for you. (Personally, I've configured it to create a card on my personal Trello board, with a deadline of midnight tonight; there's nothing like a deadline!)\n\nThere's also a request which will send it to a [Slack incoming webhook](https://api.slack.com/messaging/webhooks), allowing your writing prompts to be shared to a channel of your choosing.\n\nI've set up a Monitor in Postman which runs this collection early each morning, ensuring I have a fresh writing prompt whenever I wake up!\n\n**Screenshot of Trello card generated via Zapier:**\n![Zapier to Trello](https://i.ibb.co/ZKyskr5/image.png)\n\n**Screenshot of Slack bot message:**\n![Slack](https://i.ibb.co/ypKKKJb/image.png)\n\n### Detailed setup instructions\n\nMake sure you have set up the following environment variables:\n\n| Variable Name      | Description         |\n| ------------------ | ------------------- |\n| zapier_user_id     | Set in step 3 below |\n| zapier_webhook_id  | Set in step 3 below |\n| slack_webhook_id.  | Set in step 6 below |\n\n1. Create a [Zapier](https://zapier.com) account (or login to an existing account)\n2. Create a new Zap, setting the trigger to \"Webhooks by Zapier\", and the target to whichever application you wish to link with.\n3. Look at the webhook URL which Zapier has generated for you, and copy the last two elements into the relevant environment variables. For example, if the webhook URL is `https://hooks.zapier.com/hooks/catch/1234567/f8f22cdd/` then you should set your zapier_user_id to `1234567`, and your zapier_webhook_id to `f8f22cdd`.\n4. Complete the setup of your Zap, and use Zapier's own test tools (combined with manually running the Send Random Prompts request from Postman) to ensure that the data is being delivered correctly.\n5. For Slack, create a [Slack incoming webhook](https://api.slack.com/messaging/webhooks) in the workspace that you wish to publish to.\n6. Copy the URL for the Slack webhook, and insert into the slack_webhook_id environment variable.\n\n### Enjoy the prompts, and happy writing!\n\n![Mr Bean](https://i.pinimg.com/originals/99/1e/16/991e165d2936fb7a512ab0a4090405bf.gif)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Random Inspirational Quote",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "var jsonData = pm.response.json();",
+              "pm.collectionVariables.set(\"quote\", jsonData[0].q);",
+              "pm.collectionVariables.set(\"quote_author\", jsonData[0].a);"
+            ],
+            "type": "text/javascript",
+            "id": "853e07e5-c72b-4086-b02a-b0e120f6fcba"
+          }
+        }
+      ],
+      "_postman_id": "f50a6d09-bace-4097-baf5-c1329a8ad3e4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://zenquotes.io/api/random",
+        "description": "Retrieves a random inspirational quote from the ZenQuotes API, and saves the quote and author into collection variables (`quote` and `quote_author`) for use in the next request.\n\nFor more details about the endpoint's behavior, please view the [ZenQuotes API documentation](https://zenquotes.io/#docs)."
+      },
+      "response": [
+        {
+          "id": "70acbd35-cdf7-4213-91e5-2178990f583d",
+          "name": "Get Random Inspirational Quote",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": "https://zenquotes.io/api/random"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "plain",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 21 Jul 2021 15:31:53 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "Content-Length",
+              "value": "148"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5, max=100"
+            },
+            {
+              "key": "Connection",
+              "value": "Keep-Alive"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/plain; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "[ {\"q\":\"When the time is gone, you can never get it back.\",\"a\":\"Stephen King\",\"h\":\"<blockquote>&ldquo;When the time is gone, you can never get it back.&rdquo; &mdash; <footer>Stephen King</footer></blockquote>\"} ]"
+        }
+      ]
+    },
+    {
+      "name": "Office quotes random",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f1904ae8-866e-4bef-9444-577d5e551165",
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "pm.collectionVariables.set(\"Words\", jsonData.data.content);",
+              "pm.collectionVariables.set(\"Staff\", jsonData.data.character.firstname);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "e5194a61-5750-414f-9bc0-e5018e412d8c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://officeapi.dev/api/quotes/random"
+      },
+      "response": []
+    },
+    {
+      "name": "Send Random Prompts to Slack",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "34cdc552-bfd8-4ab8-9e21-491d4383576e",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "6991fd84-b839-415b-9c69-72237e1739c3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"text\": \"✍️_\\\"{{quote}}\\\" - {{quote_author}}_\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{Slack_webhook_url}}",
+        "description": "Using the variables from the Generate Random Prompts request, sends a request to a Zapier webhook. You will need to manually set your `slack_webhook_url` environment variable."
+      },
+      "response": [
+        {
+          "id": "89b17fc2-9832-4d6e-a0b3-9a7bfe59591e",
+          "name": "Send Random Prompts to Slack",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Today's challenge: Write a {{length}}-word {{genre}} story including the action '{{action}}' and the word '{{word}}'. ✍️\\n_\\\"{{quote}}\\\" - {{quote_author}}_\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{slack_webhook_url}}"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "date",
+              "value": "Thu, 22 Jul 2021 06:42:42 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Apache"
+            },
+            {
+              "key": "strict-transport-security",
+              "value": "max-age=31536000; includeSubDomains; preload"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "x-frame-options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "referrer-policy",
+              "value": "no-referrer"
+            },
+            {
+              "key": "x-slack-backend",
+              "value": "r"
+            },
+            {
+              "key": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "content-length",
+              "value": "22"
+            },
+            {
+              "key": "content-type",
+              "value": "text/html"
+            },
+            {
+              "key": "x-envoy-upstream-service-time",
+              "value": "33"
+            },
+            {
+              "key": "x-backend",
+              "value": "main_normal main_bedrock_normal_with_overflow main_canary_with_overflow main_bedrock_canary_with_overflow main_control_with_overflow main_bedrock_control_with_overflow"
+            },
+            {
+              "key": "x-server",
+              "value": "slack-www-hhvm-main-iad-2bfv"
+            },
+            {
+              "key": "x-via",
+              "value": "envoy-www-iad-rora, haproxy-edge-lhr-rwaj"
+            },
+            {
+              "key": "x-slack-shared-secret-outcome",
+              "value": "shared-secret"
+            },
+            {
+              "key": "via",
+              "value": "envoy-www-iad-rora"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "ok"
+        }
+      ]
+    },
+    {
+      "name": "Random office quotes",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "acf393d0-5464-42c9-999a-ebc7a35159c3",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "cee8d088-797c-4e79-86e5-1f7fce0d1c52",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"text\": \":michael-amaze:\\\"{{Words}}\\\" - {{Staff}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{Slack_webhook_url}}",
+        "description": "Using the variables from the Generate Random Prompts request, sends a request to a Zapier webhook. You will need to manually set your `slack_webhook_url` environment variable."
+      },
+      "response": [
+        {
+          "id": "7992dcfb-88cc-489e-b370-e6cb997c4b7f",
+          "name": "Send Random Prompts to Slack",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Today's challenge: Write a {{length}}-word {{genre}} story including the action '{{action}}' and the word '{{word}}'. ✍️\\n_\\\"{{quote}}\\\" - {{quote_author}}_\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{slack_webhook_url}}"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "date",
+              "value": "Thu, 22 Jul 2021 06:42:42 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Apache"
+            },
+            {
+              "key": "strict-transport-security",
+              "value": "max-age=31536000; includeSubDomains; preload"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "x-frame-options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "referrer-policy",
+              "value": "no-referrer"
+            },
+            {
+              "key": "x-slack-backend",
+              "value": "r"
+            },
+            {
+              "key": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "content-length",
+              "value": "22"
+            },
+            {
+              "key": "content-type",
+              "value": "text/html"
+            },
+            {
+              "key": "x-envoy-upstream-service-time",
+              "value": "33"
+            },
+            {
+              "key": "x-backend",
+              "value": "main_normal main_bedrock_normal_with_overflow main_canary_with_overflow main_bedrock_canary_with_overflow main_control_with_overflow main_bedrock_control_with_overflow"
+            },
+            {
+              "key": "x-server",
+              "value": "slack-www-hhvm-main-iad-2bfv"
+            },
+            {
+              "key": "x-via",
+              "value": "envoy-www-iad-rora, haproxy-edge-lhr-rwaj"
+            },
+            {
+              "key": "x-slack-shared-secret-outcome",
+              "value": "shared-secret"
+            },
+            {
+              "key": "via",
+              "value": "envoy-www-iad-rora"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "ok"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ],
+        "id": "707c821c-8c86-4058-a7c0-f62ba42482ec"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ],
+        "id": "3f93d756-5387-4e4c-8653-e5f8e9e3004a"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "fa353c35-3233-408f-a68b-5c16ae4a44af",
+      "key": "action",
+      "value": "Doing a spacewalk",
+      "type": "string"
+    },
+    {
+      "id": "12a18db1-7cfa-4ad9-a0c7-596aecea049f",
+      "key": "genre",
+      "value": "Comedy",
+      "type": "string"
+    },
+    {
+      "id": "1af8c1b8-4e65-44f3-bac7-49f56006bac0",
+      "key": "word",
+      "value": "parsnip",
+      "type": "string"
+    },
+    {
+      "id": "5b9bc363-dbd7-4afd-9972-838be9bcdc81",
+      "key": "length",
+      "value": "100",
+      "type": "string"
+    },
+    {
+      "id": "96bca409-d89d-47cb-9ae1-55cd3be4f064",
+      "key": "quote",
+      "value": "This is a test quote.",
+      "type": "string"
+    },
+    {
+      "id": "26fc9cc3-a3d9-47a5-8a36-8fc1a104c7b8",
+      "key": "quote_author",
+      "value": "Neil Studd",
+      "type": "string"
+    },
+    {
+      "id": "fb74b98b-6dfd-4391-afdd-05a3bebf7dac",
+      "key": "Slack_webhook_url",
+      "value": "https://hooks.slack.com/services/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",
+      "type": "string"
+    },
+    {
+      "id": "c2b50b6d-2ef7-48fe-a8a8-0c141ba58708",
+      "key": "Words",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "id": "0040e19a-5c26-43c1-8308-809faac2ade1",
+      "key": "Staff",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
