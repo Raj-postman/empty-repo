@@ -1,0 +1,43 @@
+{
+  "info": {
+    "_postman_id": "ea0de604-daeb-4891-a112-10a782f5bf9c",
+    "name": "Newman",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "be41abe7-839f-45e2-9572-8d2a4ec47801",
+            "exec": [
+              "pm.test(\"Status code is 200\", () => {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "console.log(pm.request);",
+              "",
+              "var jsonData = JSON.parse(responseBody);",
+              "let env_name = jsonData.headers.host",
+              "pm.environment.set(\"token\", jsonData.headers.host);",
+              "console.log(env_name)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "8f0246f0-f3f8-4fb1-bffb-8cc438c3b0b0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://postman-echo.com/get"
+      },
+      "response": []
+    }
+  ]
+}
