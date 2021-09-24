@@ -7,10 +7,13 @@
   },
   "item": [
     {
-      "name": "Ping",
-      "_postman_id": "1048679b-e3c4-45dc-8dcd-b521e8707aa6",
+      "name": "Example Push",
+      "id": "1048679b-e3c4-45dc-8dcd-b521e8707aa6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
       "request": {
-        "method": "POST",
+        "method": "GET",
         "header": [
           {
             "key": "Content-Type",
@@ -33,45 +36,6 @@
         "url": "{{ACHServiceSoapBaseUrl}}/jxchange/2008/ServiceGateway/ACH.svc"
       },
       "response": [
-        {
-          "id": "68c79588-1101-404e-8903-a64bf890327c",
-          "name": "Ping fault - HdrFault",
-          "originalRequest": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "text/xml; charset=utf-8"
-              },
-              {
-                "key": "SOAPAction",
-                "value": "http://jackhenry.com/ws/Ping"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "incorrect body message",
-              "options": {
-                "raw": {
-                  "language": "xml"
-                }
-              }
-            },
-            "url": "https://jackhenry.com/jxchange/2008/ServiceGateway/ACH.svc"
-          },
-          "status": "not OK",
-          "code": 500,
-          "_postman_previewlanguage": "xml",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "text/xml; charset=utf-8"
-            }
-          ],
-          "cookie": [],
-          "responseTime": null,
-          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found HdrFault</error>\n  </soap:Body>\n</soap:Envelope>\n"
-        },
         {
           "id": "90baa5b4-f233-4fd6-851f-8ccdc6c4ff70",
           "name": "Ping response",
@@ -110,14 +74,56 @@
           "cookie": [],
           "responseTime": null,
           "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found PingResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+        },
+        {
+          "id": "68c79588-1101-404e-8903-a64bf890327c",
+          "name": "Ping fault - HdrFault",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "http://jackhenry.com/ws/Ping"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "incorrect body message",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "https://jackhenry.com/jxchange/2008/ServiceGateway/ACH.svc"
+          },
+          "status": "not OK",
+          "code": 500,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found HdrFault</error>\n  </soap:Body>\n</soap:Envelope>\n"
         }
       ]
     },
     {
       "name": "ACHFileAdd",
-      "_postman_id": "4a7026a0-53a5-4e9a-aa4d-9d854e291abd",
+      "id": "4a7026a0-53a5-4e9a-aa4d-9d854e291abd",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
       "request": {
-        "method": "POST",
+        "method": "GET",
         "header": [
           {
             "key": "Content-Type",
@@ -221,115 +227,8 @@
       ]
     },
     {
-      "name": "ACHFileMod",
-      "_postman_id": "e5d18206-07c0-47ca-9c62-11b1b63a2c11",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "text/xml; charset=utf-8"
-          },
-          {
-            "key": "SOAPAction",
-            "value": "http://jackhenry.com/ws/ACHFileMod"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found ACHFileMod</error>\n  </soap:Body>\n</soap:Envelope>\n",
-          "options": {
-            "raw": {
-              "language": "xml"
-            }
-          }
-        },
-        "url": "{{ACHServiceSoapBaseUrl}}/jxchange/2008/ServiceGateway/ACH.svc"
-      },
-      "response": [
-        {
-          "id": "0b98ca8a-0c8d-41a6-8054-a80429fcd6aa",
-          "name": "ACHFileMod response",
-          "originalRequest": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "text/xml; charset=utf-8"
-              },
-              {
-                "key": "SOAPAction",
-                "value": "http://jackhenry.com/ws/ACHFileMod"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found ACHFileMod</error>\n  </soap:Body>\n</soap:Envelope>\n",
-              "options": {
-                "raw": {
-                  "language": "xml"
-                }
-              }
-            },
-            "url": "https://jackhenry.com/jxchange/2008/ServiceGateway/ACH.svc"
-          },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "xml",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "text/xml; charset=utf-8"
-            }
-          ],
-          "cookie": [],
-          "responseTime": null,
-          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found ACHFileModResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
-        },
-        {
-          "id": "8a605ad0-c2da-4c4f-8ee5-05060354388c",
-          "name": "ACHFileMod fault - HdrFault",
-          "originalRequest": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "text/xml; charset=utf-8"
-              },
-              {
-                "key": "SOAPAction",
-                "value": "http://jackhenry.com/ws/ACHFileMod"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "incorrect body message",
-              "options": {
-                "raw": {
-                  "language": "xml"
-                }
-              }
-            },
-            "url": "https://jackhenry.com/jxchange/2008/ServiceGateway/ACH.svc"
-          },
-          "status": "not OK",
-          "code": 500,
-          "_postman_previewlanguage": "xml",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "text/xml; charset=utf-8"
-            }
-          ],
-          "cookie": [],
-          "responseTime": null,
-          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found HdrFault</error>\n  </soap:Body>\n</soap:Envelope>\n"
-        }
-      ]
-    },
-    {
       "name": "ACHFileInq",
-      "_postman_id": "7d6dcd7b-124f-4e11-8752-3be319df4768",
+      "id": "7d6dcd7b-124f-4e11-8752-3be319df4768",
       "request": {
         "method": "POST",
         "header": [
@@ -354,45 +253,6 @@
         "url": "{{ACHServiceSoapBaseUrl}}/jxchange/2008/ServiceGateway/ACH.svc"
       },
       "response": [
-        {
-          "id": "5a7dec5d-2edb-4279-9c5e-bb4515eb2c2b",
-          "name": "ACHFileInq fault - HdrFault",
-          "originalRequest": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "text/xml; charset=utf-8"
-              },
-              {
-                "key": "SOAPAction",
-                "value": "http://jackhenry.com/ws/ACHFileInq"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "incorrect body message",
-              "options": {
-                "raw": {
-                  "language": "xml"
-                }
-              }
-            },
-            "url": "https://jackhenry.com/jxchange/2008/ServiceGateway/ACH.svc"
-          },
-          "status": "not OK",
-          "code": 500,
-          "_postman_previewlanguage": "xml",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "text/xml; charset=utf-8"
-            }
-          ],
-          "cookie": [],
-          "responseTime": null,
-          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found HdrFault</error>\n  </soap:Body>\n</soap:Envelope>\n"
-        },
         {
           "id": "e945ac9a-2d1e-4b00-be60-d0ea04abf3a7",
           "name": "ACHFileInq response",
@@ -431,12 +291,51 @@
           "cookie": [],
           "responseTime": null,
           "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found ACHFileInqResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+        },
+        {
+          "id": "5a7dec5d-2edb-4279-9c5e-bb4515eb2c2b",
+          "name": "ACHFileInq fault - HdrFault",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "http://jackhenry.com/ws/ACHFileInq"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "incorrect body message",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "https://jackhenry.com/jxchange/2008/ServiceGateway/ACH.svc"
+          },
+          "status": "not OK",
+          "code": 500,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found HdrFault</error>\n  </soap:Body>\n</soap:Envelope>\n"
         }
       ]
     },
     {
       "name": "ACHCompMod",
-      "_postman_id": "bd6d9894-53a5-4d64-94e0-ab80afb2fb3e",
+      "id": "bd6d9894-53a5-4d64-94e0-ab80afb2fb3e",
       "request": {
         "method": "POST",
         "header": [
@@ -543,7 +442,7 @@
     },
     {
       "name": "ACHRetNOCSrch",
-      "_postman_id": "a78109e1-189d-4162-acc7-3a2981c93e15",
+      "id": "a78109e1-189d-4162-acc7-3a2981c93e15",
       "request": {
         "method": "POST",
         "header": [
@@ -650,7 +549,7 @@
     },
     {
       "name": "ACHRetNOCInq",
-      "_postman_id": "ccf8291f-e914-410e-a43c-412be40227c6",
+      "id": "ccf8291f-e914-410e-a43c-412be40227c6",
       "request": {
         "method": "POST",
         "header": [
@@ -675,45 +574,6 @@
         "url": "{{ACHServiceSoapBaseUrl}}/jxchange/2008/ServiceGateway/ACH.svc"
       },
       "response": [
-        {
-          "id": "0dad2e47-691f-4750-a808-d67f2e298486",
-          "name": "ACHRetNOCInq fault - HdrFault",
-          "originalRequest": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "text/xml; charset=utf-8"
-              },
-              {
-                "key": "SOAPAction",
-                "value": "http://jackhenry.com/ws/ACHRetNOCInq"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "incorrect body message",
-              "options": {
-                "raw": {
-                  "language": "xml"
-                }
-              }
-            },
-            "url": "https://jackhenry.com/jxchange/2008/ServiceGateway/ACH.svc"
-          },
-          "status": "not OK",
-          "code": 500,
-          "_postman_previewlanguage": "xml",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "text/xml; charset=utf-8"
-            }
-          ],
-          "cookie": [],
-          "responseTime": null,
-          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found HdrFault</error>\n  </soap:Body>\n</soap:Envelope>\n"
-        },
         {
           "id": "e235f581-38b9-4af8-8f76-417489f43ccb",
           "name": "ACHRetNOCInq response",
@@ -752,12 +612,51 @@
           "cookie": [],
           "responseTime": null,
           "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found ACHRetNOCInqResponse</error>\n  </soap:Body>\n</soap:Envelope>\n"
+        },
+        {
+          "id": "0dad2e47-691f-4750-a808-d67f2e298486",
+          "name": "ACHRetNOCInq fault - HdrFault",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "http://jackhenry.com/ws/ACHRetNOCInq"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "incorrect body message",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "https://jackhenry.com/jxchange/2008/ServiceGateway/ACH.svc"
+          },
+          "status": "not OK",
+          "code": 500,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found HdrFault</error>\n  </soap:Body>\n</soap:Envelope>\n"
         }
       ]
     },
     {
       "name": "ACHFltrInq",
-      "_postman_id": "c55d1ba1-0638-4eb3-a941-66ab6ec7a52a",
+      "id": "c55d1ba1-0638-4eb3-a941-66ab6ec7a52a",
       "request": {
         "method": "POST",
         "header": [
@@ -864,7 +763,7 @@
     },
     {
       "name": "ACHFltrAdd",
-      "_postman_id": "ab42427d-2392-460a-98be-935e45ea431a",
+      "id": "ab42427d-2392-460a-98be-935e45ea431a",
       "request": {
         "method": "POST",
         "header": [
@@ -971,7 +870,7 @@
     },
     {
       "name": "ACHFltrMod",
-      "_postman_id": "b9bb4b64-38ef-4c3b-9ae1-25fa48253533",
+      "id": "b9bb4b64-38ef-4c3b-9ae1-25fa48253533",
       "request": {
         "method": "POST",
         "header": [
@@ -1075,6 +974,32 @@
           "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <error>The element or type could not be found HdrFault</error>\n  </soap:Body>\n</soap:Envelope>\n"
         }
       ]
+    },
+    {
+      "name": "00012",
+      "id": "6f722047-30d7-4f3f-ae52-9797488c49cf",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "added"
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "id": "ace27226-8427-4bba-86c5-6ecd3c549be4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": null
+      },
+      "response": []
     }
   ],
   "variable": [
