@@ -28,7 +28,7 @@
           }
         }
       ],
-      "_postman_id": "8f0246f0-f3f8-4fb1-bffb-8cc438c3b0b0",
+      "id": "8f0246f0-f3f8-4fb1-bffb-8cc438c3b0b0",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -36,6 +36,19 @@
         "method": "GET",
         "header": [],
         "url": "https://postman-echo.com/get"
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "id": "2e798fc3-9af4-46fe-a100-6627dc958124",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": null
       },
       "response": []
     }
