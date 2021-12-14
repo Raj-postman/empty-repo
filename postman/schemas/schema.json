@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: 1.1.1
-  title: "Postman toGithUb"
+  title: "GH to Postman"
 servers:
   - url: 'https://postman.com/v5'
 paths:
