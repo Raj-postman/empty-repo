@@ -19,6 +19,19 @@
         "description": "New request, which is added right now."
       },
       "response": []
+    },
+    {
+      "name": "New Request",
+      "id": "806bf612-29db-4e64-bf23-11bca9bc99cf",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": null
+      },
+      "response": []
     }
   ]
 }
