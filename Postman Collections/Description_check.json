@@ -21,7 +21,7 @@
       "response": []
     },
     {
-      "name": "New Request",
+      "name": "Post",
       "id": "806bf612-29db-4e64-bf23-11bca9bc99cf",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
