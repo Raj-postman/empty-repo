@@ -14102,7 +14102,13 @@
 				"header": [],
 				"body": {
 					"mode": "formdata",
-					"formdata": []
+					"formdata": [
+						{
+							"key": "1",
+							"value": "2",
+							"type": "text"
+						}
+					]
 				},
 				"url": "{{baseUrl}}/debug-sentry"
 			},
