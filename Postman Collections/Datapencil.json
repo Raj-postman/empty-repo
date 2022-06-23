@@ -14087,8 +14087,7 @@
 					"script": {
 						"id": "77fd294b-8104-4677-bd0d-bec14644e386",
 						"exec": [
-							"pm.globals.get(\"variable_key\");",
-							"pm.environment.set(\"variable_key\", \"variable_value\");"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -14103,23 +14102,7 @@
 				"header": [],
 				"body": {
 					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "1",
-							"value": "2",
-							"type": "text"
-						},
-						{
-							"key": "3",
-							"value": "1",
-							"type": "text"
-						},
-						{
-							"key": "1",
-							"value": "3",
-							"type": "text"
-						}
-					]
+					"formdata": []
 				},
 				"url": "{{baseUrl}}/debug-sentry"
 			},
