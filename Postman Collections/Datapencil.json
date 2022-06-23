@@ -14174,10 +14174,15 @@
 							"key": "2",
 							"value": "1",
 							"type": "text"
+						},
+						{
+							"key": "3",
+							"value": "2",
+							"type": "text"
 						}
 					]
 				},
-				"url": "{{baseUrl}}/hooks/"
+				"url": "https://www.postman-echo.com/post"
 			},
 			"response": [
 				{
